@@ -5,4 +5,8 @@ public class Avion implements Volador{
     public void volar() {
 
     }
+    @Override
+    public void correr(){
+
+    }
 }
