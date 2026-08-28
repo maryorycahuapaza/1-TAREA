@@ -12,6 +12,15 @@ public class Loro implements Animal{
         System.out.println("Zzz...zzz..zz");
     }
 
+    @Override
+    public void comer() {
+        System.out.println("Comiendo manzana");
+    }
+
+    @Override
+    public void pruebad(){
+        System.out.println("Estamos probando que pasa");
+    }
     public void cantar(){
         System.out.println("Lalalalala....");
     }

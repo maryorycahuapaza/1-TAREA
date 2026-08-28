@@ -10,6 +10,9 @@ public class Principal {
         Animal a=new Loro();
         a.emitirSonido();
         a.dormir();
+        a.comer();
+        a.pruebad();
+        Animal.prueba();
 
     }
 }

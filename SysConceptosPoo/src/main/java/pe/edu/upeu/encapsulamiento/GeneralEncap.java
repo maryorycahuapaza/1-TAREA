@@ -1,5 +1,8 @@
 package pe.edu.upeu.encapsulamiento;
 
+import pe.edu.upeu.encapsulamiento.modelo.Persona;
+import pe.edu.upeu.encapsulamiento.modelo.PersonaX;
+
 public class GeneralEncap {
     public static void main(String[] args) {
         Persona pObj=new Persona(); //pObj es un Objeto

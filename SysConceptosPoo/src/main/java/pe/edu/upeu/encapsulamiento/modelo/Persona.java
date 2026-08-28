@@ -1,4 +1,4 @@
-package pe.edu.upeu.encapsulamiento;
+package pe.edu.upeu.encapsulamiento.modelo;
 
 public class Persona {
     String nombre;
