@@ -9,3 +9,4 @@ public class Cliente {
     String repLel;
     TipoDocumento tipoDocumento;
 }
+
