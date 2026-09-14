@@ -1,29 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.effect.*?>
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.ProductoController">
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pe.edu.upeu.sysventas.controller.ProductoController">
    <children>
-      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+      <VBox AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
          <children>
-            <AnchorPane prefWidth="200.0">
+            <AnchorPane>
                <children>
-                  <Label alignment="TOP_RIGHT" layoutX="34.0" layoutY="22.0" text="Gestionar productos" textAlignment="CENTER" textFill="#1a637a" textOverrun="CENTER_ELLIPSIS" wrapText="true">
+                  <Label alignment="TOP_RIGHT" layoutX="34.0" layoutY="22.0" text="GESTIONAR PRODUCTOS" textAlignment="CENTER" textFill="#1a637a" textOverrun="CENTER_ELLIPSIS" wrapText="true">
                      <font>
                         <Font name="JetBrains Mono ExtraBold" size="17.0" />
                      </font>
                      <effect>
                         <ColorAdjust />
                      </effect></Label>
-                  <Label layoutX="337.0" layoutY="39.0" text="Filtrar Productos" textFill="#16bac6">
+                  <Label layoutX="337.0" layoutY="39.0" text="Filtrar Productos" textFill="#7fced3">
                      <font>
                         <Font name="JetBrains Mono ExtraBold" size="12.0" />
                      </font></Label>
                   <TextField layoutX="337.0" layoutY="61.0" />
-                  <Button layoutX="497.0" layoutY="59.0" mnemonicParsing="false" text="Buscar" textFill="#07d3c6">
+                  <Button layoutX="497.0" layoutY="59.0" mnemonicParsing="false" text="Buscar" textFill="#08a1d1">
                      <font>
                         <Font name="JetBrains Mono ExtraBold" size="12.0" />
                      </font></Button>
@@ -31,12 +32,12 @@
             </AnchorPane>
             <HBox maxHeight="1.7976931348623157E308" prefHeight="100.0" prefWidth="200.0">
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane>
                      <children>
-                        <GridPane layoutY="7.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="269.0" prefWidth="452.0">
+                        <GridPane layoutY="7.0" AnchorPane.bottomAnchor="0.0">
                           <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="129.0" />
+                            <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="128.0" />
+                              <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="107.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="120.0" minWidth="10.0" prefWidth="106.0" />
                               <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
                           </columnConstraints>
@@ -53,26 +54,89 @@
                               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                           </rowConstraints>
                            <children>
-                              <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="129.0" text="Formulario de Regsitro" GridPane.columnIndex="1" GridPane.columnSpan="2" />
-                              <Label text="Tipo Producto" GridPane.rowIndex="1" />
-                              <Label text="Nombre Producto" GridPane.rowIndex="2" />
-                              <Label text="P Unidad" GridPane.rowIndex="3" />
-                              <Label text="Utilidad" GridPane.rowIndex="4" />
-                              <Label text="Stock" GridPane.rowIndex="5" />
-                              <TextField prefHeight="25.0" prefWidth="341.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="3" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                              <TextField GridPane.columnIndex="1" GridPane.rowIndex="5" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="5" />
-                              <TextField GridPane.columnIndex="3" GridPane.rowIndex="3" />
-                              <Label text="P Unidad Old" GridPane.columnIndex="2" GridPane.rowIndex="3" />
-                              <Label text="Stock Old" GridPane.columnIndex="2" GridPane.rowIndex="5" />
-                              <ComboBox prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="129.0" text="FORMULARIO DE REGISTRO" GridPane.columnIndex="1" GridPane.columnSpan="2">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font></Label>
+                              <Label maxWidth="1.7976931348623157E308" text=" Tipo Producto" GridPane.rowIndex="1">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font></Label>
+                              <Label maxWidth="1.7976931348623157E308" prefHeight="17.0" prefWidth="117.0" text=" Nombre Producto" GridPane.rowIndex="2">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font></Label>
+                              <Label maxWidth="1.7976931348623157E308" text="  P Unidad" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font></Label>
+                              <Label text="  Utilidad" GridPane.rowIndex="4">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font></Label>
+                              <Label text="  Stock" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font></Label>
+                              <TextField fx:id="txtNombreProducto" prefHeight="25.0" prefWidth="341.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="2" />
+                              <TextField fx:id="txtPUnidad" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                              <TextField fx:id="txtUtilidad" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                              <TextField fx:id="txtStock" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                              <TextField fx:id="txtStockOld" GridPane.columnIndex="3" GridPane.rowIndex="5" />
+                              <TextField fx:id="txtPUnidadOld" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                              <Label text=" P Unidad Old" GridPane.columnIndex="2" GridPane.rowIndex="3">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font></Label>
+                              <Label text="  Stock Old" GridPane.columnIndex="2" GridPane.rowIndex="5">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font></Label>
+                              <ComboBox fx:id="cbxTipoProducto" prefWidth="150.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                              <Label contentDisplay="RIGHT" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" text="  Categoria" GridPane.rowIndex="6">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="  Marca" GridPane.rowIndex="7">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <Label text="  Unidad Medida" GridPane.rowIndex="8">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font>
+                              </Label>
+                              <ComboBox fx:id="cbxCategoria" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="6" />
+                              <ComboBox fx:id="cbxMarca" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="7" />
+                              <ComboBox fx:id="cbxUnidadMedida" maxWidth="1.7976931348623157E308" prefWidth="150.0" GridPane.columnIndex="1" GridPane.columnSpan="3" GridPane.rowIndex="8" />
+                              <Button mnemonicParsing="false" text="Guardar" textFill="#1782bc" GridPane.columnIndex="1" GridPane.rowIndex="9">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font>
+                              </Button>
+                              <Button mnemonicParsing="false" text="Cancelar" textFill="#2585c2" GridPane.columnIndex="2" GridPane.rowIndex="9">
+                                 <font>
+                                    <Font name="JetBrains Mono ExtraBold" size="12.0" />
+                                 </font>
+                              </Button>
                            </children>
+                           <padding>
+                              <Insets left="5.0" />
+                           </padding>
                         </GridPane>
                      </children>
                   </AnchorPane>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" />
+                  <AnchorPane>
+                  <children>
+                        <TableView layoutY="54.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+                          <columns>
+                            <TableColumn minWidth="0.0" prefWidth="71.0" text="C1" />
+                            <TableColumn prefWidth="79.0" text="C2" />
+                          </columns>
+                        </TableView>
+                     </children></AnchorPane>
                </children>
             </HBox>
          </children></VBox>
