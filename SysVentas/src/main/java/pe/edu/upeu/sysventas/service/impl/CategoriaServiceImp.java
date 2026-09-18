@@ -22,9 +22,12 @@ public class CategoriaServiceImp  extends CrudGenericoServiceImp<Categoria, Long
 
     @Override
     public List<ComboBoxOption> listCategoria() {
-        List<ComboBoxOption>listar=new ArrayList<>();
-        for (Categoria cat:categoriaRepository.findAll()){
-            ComboBoxOption cb=new ComboBoxOption();
+        if (categoriaRepository.findAll().isEmpty()) {
+            categoriaRepository.seedData();
+        }
+        List<ComboBoxOption> listar = new ArrayList<>();
+        for (Categoria cat : categoriaRepository.findAll()) {
+            ComboBoxOption cb = new ComboBoxOption();
             cb.setKey(String.valueOf(cat.getIdCategoria()));
             cb.setValue(cat.getNombre());
             listar.add(cb);
@@ -32,3 +35,4 @@ public class CategoriaServiceImp  extends CrudGenericoServiceImp<Categoria, Long
         return listar;
     }
 }
+

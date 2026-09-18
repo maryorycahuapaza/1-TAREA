@@ -18,6 +18,13 @@ public class CategoriaRepository  extends AbstractJpaRepository<Categoria, Long>
     protected Long generateId() {
         return sequence++;
     }
+    public void seedData() {
+        if (findAll().isEmpty()) {
+            save(new Categoria(generateId(), "Bebidas"));
+            save(new Categoria(generateId(),"Artefactos"));
+            save(new Categoria(generateId(),"Prendas"));
+        }
+    }
 }
 
 
