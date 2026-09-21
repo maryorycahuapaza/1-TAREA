@@ -25,8 +25,11 @@ public class ProductoRepository extends AbstractJpaRepository<Producto, Long> {
     public void seedData() {
         if (findAll().isEmpty()) {
             Categoria c=new Categoria();
+            c.setIdCategoria(1L);
             Marca m=new Marca();
+            m.setIdMarca(1L);
             UnidMedida um=new UnidMedida();
+            um.setIdUnidad(1L);
             save(new Producto(generateId(),"Televisor", TipoProducto.PRODUCTO,1200.00,0.00,100.00,12.00,0.00,c,m,um));
 
         }
