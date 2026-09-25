@@ -68,9 +68,9 @@ public class PeliculaController {
         columns.put("ID", new ColumnInfo("idPelicula", 60.0));
         columns.put("Nombre", new ColumnInfo("nombre", 200.0));
         columns.put("Duración", new ColumnInfo("duracion", 100.0));
-        columns.put("Género", new ColumnInfo("idGenero", 150.0));
-        columns.put("Formato", new ColumnInfo("idFormato", 100.0));
-        columns.put("Clasificación", new ColumnInfo("idClasificacion", 120.0));
+        columns.put("Género", new ColumnInfo("idGenero.nombre", 150.0));
+        columns.put("Formato", new ColumnInfo("idFormato.nombre", 100.0));
+        columns.put("Clasificación", new ColumnInfo("idClasificacion.nombre", 120.0));
         columns.put("Estado", new ColumnInfo("estado", 150.0));
         Consumer<Pelicula> updateAction = p-> {
             editForm(p);
