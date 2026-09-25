@@ -1,6 +1,5 @@
 package pe.edu.upeu.sysventas.repository;
 
-import pe.edu.upeu.sysventas.model.Categoria;
 import pe.edu.upeu.sysventas.model.UnidMedida;
 
 public class UnidadMedidaRepository extends AbstractJpaRepository<UnidMedida, Long> {

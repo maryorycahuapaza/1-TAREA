@@ -1,9 +1,11 @@
-package pe.edu.upeu.sysventas.config;
+package pe.edu.upeu.evaluacion01_proyectocineplanet.config;
 
-import pe.edu.upeu.sysventas.controller.*;
-import pe.edu.upeu.sysventas.repository.*;
-import pe.edu.upeu.sysventas.service.*;
-import pe.edu.upeu.sysventas.service.impl.*;
+import pe.edu.upeu.evaluacion01_proyectocineplanet.repository.*;
+import pe.edu.upeu.evaluacion01_proyectocineplanet.controller.*;
+import pe.edu.upeu.evaluacion01_proyectocineplanet.repository.*;
+import pe.edu.upeu.evaluacion01_proyectocineplanet.service.*;
+import pe.edu.upeu.evaluacion01_proyectocineplanet.service.impl.*;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,7 +20,7 @@ public class AppContext {
     }
 
     // El "directorio": Clase → Objeto
-    private final Map<Class<?>, Object> contenedor = new HashMap<>();
+    private final Map<Class<?>, Object> cineplanet = new HashMap<>();
 
     // Constructor privado: aquí se arma toda la aplicación
     private AppContext() {
@@ -34,10 +36,10 @@ public class AppContext {
         //registrar(CategoriaRepository.class, new CategoriaRepository());
 
 
-        registrar(CategoriaRepository.class,     new CategoriaRepository());
-        registrar(MarcaRepository.class,         new MarcaRepository());
-        registrar(UnidadMedidaRepository.class,  new UnidadMedidaRepository());
-        registrar(ProductoRepository.class,      new ProductoRepository());
+        registrar(ClasificacionRepository.class,     new ClasificacionRepository());
+        registrar(GeneroRepository.class,     new GeneroRepository());
+        registrar(FormatoRepository.class,         new FormatoRepository());
+        registrar(PeliculaRepository.class,      new PeliculaRepository());
 
     }
 
@@ -46,10 +48,10 @@ public class AppContext {
     // Usamos getBean() para buscarlo en el directorio: no creamos nada nuevo.
     private void registrarServicios() {
 
-        registrar(ICategoriaService.class,new CategoriaServiceImp(   getBean(CategoriaRepository.class)));
-        registrar(IMarcaService.class,new MarcaServiceImp(getBean(MarcaRepository.class)));
-        registrar(IProductoService.class,new ProductoServiceImp(    getBean(ProductoRepository.class)));
-        registrar(IUnidadMedidaService.class, new UnidadMedidaServiceImp(getBean(UnidadMedidaRepository.class)));
+        registrar(IClasificacionService.class,new ClasificacionServiceImp(   getBean(ClasificacionRepository.class)));
+        registrar(IGeneroService.class,new GeneroServiceImp(   getBean(GeneroRepository.class)));
+        registrar(IFormatoService.class,new FormatoServiceImp(     getBean(FormatoRepository.class)));
+        registrar(IPeliculaService.class,new PeliculaServiceImp(    getBean(PeliculaRepository.class)));
 
 
     }
@@ -59,19 +61,19 @@ public class AppContext {
     // El FXMLLoader los busca aquí a través de setControllerFactory().
     private void registrarControladores() {
         //registrar(LoginController.class, new LoginController(getBean(IUsuarioService.class)));
-        registrar(ProductoController.class,
-                new ProductoController(
-                        getBean(IMarcaService.class),
-                        getBean(ICategoriaService.class),
-                        getBean(IProductoService.class),
-                        getBean(IUnidadMedidaService.class)));
+        registrar(PeliculaController.class,
+                new PeliculaController(
+                        getBean(IFormatoService.class),
+                        getBean(IGeneroService.class),
+                        getBean(IClasificacionService.class),
+                        getBean(IPeliculaService.class)));
 
     }
 
     // API del contenedor — estos dos métodos son todo lo que hace la DI
     /** Guarda un objeto en el directorio, indexado por su tipo o interfaz. */
     private void registrar(Class<?> tipo, Object bean) {
-        contenedor.put(tipo, bean);
+        cineplanet.put(tipo, bean);
     }
 
     /**
@@ -80,11 +82,11 @@ public class AppContext {
      */
     @SuppressWarnings("unchecked")
     public <T> T getBean(Class<T> tipo) {
-        Object bean = contenedor.get(tipo);
+        Object bean = cineplanet.get(tipo);
         if (bean == null) {
             // Búsqueda por compatibilidad: sirve cuando se pide una interfaz
             // y el objeto guardado es su implementación concreta.
-            bean = contenedor.values().stream()
+            bean = cineplanet.values().stream()
                     .filter(b -> tipo.isAssignableFrom(b.getClass()))
                     .findFirst()
                     .orElseThrow(() -> new RuntimeException(
