@@ -1,57 +1,79 @@
 package pe.edu.upeu.sysventas.repository;
 
+import pe.edu.upeu.sysventas.repository.helper.SqlHelper;
+
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public abstract class AbstractJpaRepository<T,ID> implements ICrudGenericoRepository<T,ID>{
-    protected final List<T>data=new ArrayList<>();
-    protected abstract ID getId (T entity);
-    protected abstract void  setId (T entity, ID id);
-    protected abstract ID generateId ();
+public abstract class AbstractJpaRepository<T,ID> extends SqlHelper<T> implements ICrudGenericoRepository<T,ID>{
+
+    protected abstract  String getTableName();
+    protected abstract  String getPKColum();
+    protected abstract  T insert (Connection connection ,T entity )throws SQLException;
+    protected abstract  T updateRow(Connection connection, T entity)throws SQLException;
+
     @Override
     public T save(T entity) {
-        if(getId(entity)==null){
-            setId(entity,generateId());
+        try (Connection conn=openConnection()){
+            conn.setAutoCommit(false);
+            try{
+                T result =insert(conn,entity);
+                conn.commit();
+                return result;
+            }catch(SQLException e){
+                conn.rollback();
+                throw e;
+            }
         }
-        data.add(entity);
-        return entity;
+        catch (SQLException e){
+            throw new RuntimeException("Error en guardar: "+e.getMessage(),e);
+        }
     }
 
     @Override
     public T update(T entity) {
-        ID id =getId(entity);
-        for(int i=0; i<data.size();i++){
-            T current =data.get(i);
-            if(getId(current).equals(id)){
-                data.set(i,entity);
-                return entity;
+        try (Connection conn=openConnection()){
+            conn.setAutoCommit(false);
+            try{
+                T result =updateRow(conn,entity);
+                conn.commit();
+                return result;
+            }catch(SQLException e){
+                conn.rollback();
+                throw e;
             }
         }
-        throw new RuntimeException("No se encontró la entidad con el ID: "+id);
+        catch (SQLException e){
+            throw new RuntimeException("Error en actualizar: "+e.getMessage(),e);
+        }
     }
 
     @Override
     public Optional<T> findById(ID id) {
+        String sql="select * from "+getTableName()+" where "+getPKColum()+"=?";
+        return executeQueryOne(sql,id);
 
-        return data.stream()
-                .filter(entity->getId(entity).equals(id))
-                .findFirst();
     }
 
     @Override
     public List<T> findAll() {
+        String sql="select * from "+getTableName();
+        return executeQuery(sql);
 
-        return new ArrayList<>(data);
     }
 
     @Override
     public void deleteById(ID id) {
-        data.removeIf(entity->getId(entity).equals(id));
+        String sql="select * from "+getTableName()+" where "+getPKColum()+"=?";
+        executeUpdateStandalone(sql,id);
     }
 
     @Override
     public boolean existsById(ID id) {
-        return data.stream().anyMatch(entity->getId(entity).equals(id));
+        String sql="select 1 from"+getTableName()+" where "+getPKColum()+"=?";
+        return executeExists(sql,id);
     }
 }
