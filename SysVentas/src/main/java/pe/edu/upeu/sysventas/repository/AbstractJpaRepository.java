@@ -67,13 +67,13 @@ public abstract class AbstractJpaRepository<T,ID> extends SqlHelper<T> implement
 
     @Override
     public void deleteById(ID id) {
-        String sql="select * from "+getTableName()+" where "+getPKColum()+"=?";
+        String sql="delete from "+getTableName()+" where "+getPKColum()+"=?";
         executeUpdateStandalone(sql,id);
     }
 
     @Override
     public boolean existsById(ID id) {
-        String sql="select 1 from"+getTableName()+" where "+getPKColum()+"=?";
+        String sql="select 1 from "+getTableName()+" where "+getPKColum()+"=?";
         return executeExists(sql,id);
     }
 }
