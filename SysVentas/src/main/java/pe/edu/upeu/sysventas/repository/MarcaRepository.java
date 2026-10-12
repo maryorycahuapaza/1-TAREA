@@ -15,7 +15,7 @@ public class MarcaRepository  extends AbstractJpaRepository<Marca, Long> {
     }
 
     @Override
-    protected String getPKColum() {
+    protected String getPKColumn() {
         return "id_marca";
     }
 

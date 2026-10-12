@@ -18,7 +18,7 @@
                   <Circle fill="#539aeb" layoutX="76.0" layoutY="30.0" radius="11.0" stroke="#3e79ee" strokeType="INSIDE" AnchorPane.leftAnchor="65.0" AnchorPane.topAnchor="19.0" />
                   <Label layoutX="113.0" layoutY="13.0" text="Login SysVentas">
                      <font>
-                        <Font name="JetBrains Mono ExtraBold" size="24.0" />
+                        <Font name="Arial Bold" size="24.0" />
                      </font>
                   </Label>
                </children>
@@ -28,7 +28,7 @@
             </AnchorPane>
             <AnchorPane>
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="147.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="95.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../img/secrecy-icon.png" />
                      </image>
@@ -52,7 +52,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <TextField layoutX="140.0" layoutY="4.0" />
+                        <TextField fx:id="usuario" layoutX="140.0" layoutY="4.0" />
                      </children>
                      <padding>
                         <Insets bottom="5.0" />
@@ -64,7 +64,7 @@
                               <Font name="System Bold" size="12.0" />
                            </font>
                         </Label>
-                        <PasswordField layoutX="140.0" layoutY="7.0" />
+                        <PasswordField fx:id="clave" layoutX="140.0" layoutY="7.0" />
                      </children>
                   </AnchorPane>
                </children>
@@ -80,14 +80,14 @@
                       <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
                     </rowConstraints>
                      <children>
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Ingresar">
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#login" text="Ingresar">
                            <padding>
                               <Insets right="5.0" />
                            </padding>
                            <GridPane.margin>
                               <Insets right="5.0" />
                            </GridPane.margin></Button>
-                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" text="Cerrar" GridPane.columnIndex="1">
+                        <Button maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#logout" text="Cerrar" GridPane.columnIndex="1">
                            <GridPane.margin>
                               <Insets right="5.0" />
                            </GridPane.margin></Button>

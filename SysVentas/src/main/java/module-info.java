@@ -8,6 +8,8 @@ module pe.edu.upeu.sysventas {
     requires java.sql;
     requires java.naming;
     requires org.slf4j;
+    requires java.prefs;
+    requires javafx.base;
     requires com.zaxxer.hikari;
     requires jakarta.validation;
     opens pe.edu.upeu.sysventas.controller to javafx.fxml;

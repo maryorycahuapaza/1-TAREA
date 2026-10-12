@@ -11,7 +11,7 @@ import java.util.Optional;
 public abstract class AbstractJpaRepository<T,ID> extends SqlHelper<T> implements ICrudGenericoRepository<T,ID>{
 
     protected abstract  String getTableName();
-    protected abstract  String getPKColum();
+    protected abstract  String getPKColumn();
     protected abstract  T insert (Connection connection ,T entity )throws SQLException;
     protected abstract  T updateRow(Connection connection, T entity)throws SQLException;
 
@@ -53,7 +53,7 @@ public abstract class AbstractJpaRepository<T,ID> extends SqlHelper<T> implement
 
     @Override
     public Optional<T> findById(ID id) {
-        String sql="select * from "+getTableName()+" where "+getPKColum()+"=?";
+        String sql="select * from "+getTableName()+" where "+getPKColumn()+"=?";
         return executeQueryOne(sql,id);
 
     }
@@ -67,13 +67,13 @@ public abstract class AbstractJpaRepository<T,ID> extends SqlHelper<T> implement
 
     @Override
     public void deleteById(ID id) {
-        String sql="delete from "+getTableName()+" where "+getPKColum()+"=?";
+        String sql="delete from "+getTableName()+" where "+getPKColumn()+"=?";
         executeUpdateStandalone(sql,id);
     }
 
     @Override
     public boolean existsById(ID id) {
-        String sql="select 1 from "+getTableName()+" where "+getPKColum()+"=?";
+        String sql="select 1 from "+getTableName()+" where "+getPKColumn()+"=?";
         return executeExists(sql,id);
     }
 }

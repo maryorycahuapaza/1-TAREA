@@ -13,7 +13,7 @@ public class CategoriaRepository  extends AbstractJpaRepository<Categoria, Long>
     }
 
     @Override
-    protected String getPKColum() {
+    protected String getPKColumn() {
         return "id_categoria";
     }
 

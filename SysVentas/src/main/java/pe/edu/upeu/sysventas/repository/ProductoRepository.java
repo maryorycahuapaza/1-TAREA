@@ -20,7 +20,7 @@ public class ProductoRepository extends AbstractJpaRepository<Producto, Long> {
     }
 
     @Override
-    protected String getPKColum() {
+    protected String getPKColumn() {
         return "id_producto";
     }
 

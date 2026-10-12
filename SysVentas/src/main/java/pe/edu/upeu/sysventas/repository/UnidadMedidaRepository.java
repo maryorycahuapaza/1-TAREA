@@ -15,7 +15,7 @@ public class UnidadMedidaRepository extends AbstractJpaRepository<UnidMedida, Lo
     }
 
     @Override
-    protected String getPKColum() {
+    protected String getPKColumn() {
         return "id_unidad";
     }
 
