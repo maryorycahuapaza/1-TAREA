@@ -34,7 +34,7 @@
                <children>
                   <AnchorPane>
                      <children>
-                        <GridPane layoutY="7.0" maxWidth="1.7976931348623157E308" AnchorPane.bottomAnchor="0.0">
+                        <GridPane layoutY="7.0" maxWidth="1.7976931348623157E308" vgap="4.0" AnchorPane.bottomAnchor="0.0">
                           <columnConstraints>
                             <ColumnConstraints hgrow="SOMETIMES" maxWidth="128.0" minWidth="10.0" prefWidth="128.0" />
                               <ColumnConstraints hgrow="SOMETIMES" maxWidth="161.0" minWidth="10.0" prefWidth="107.0" />
