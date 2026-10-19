@@ -12,6 +12,7 @@ module pe.edu.upeu.sysventas {
     requires javafx.base;
     requires com.zaxxer.hikari;
     requires jakarta.validation;
+    requires org.jsoup;
     opens pe.edu.upeu.sysventas.controller to javafx.fxml;
     opens pe.edu.upeu.sysventas to javafx.fxml;
     opens pe.edu.upeu.sysventas.model;

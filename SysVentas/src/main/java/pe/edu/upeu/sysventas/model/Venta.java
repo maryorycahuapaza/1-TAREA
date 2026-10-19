@@ -4,14 +4,14 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
-
-
-@Builder
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Venta extends DocumentoComercial{
+public class  Venta extends DocumentoComercial{
     //private Long idVenta;
     //private Double preciobase;
     //private Double igv;
@@ -19,7 +19,7 @@ public class Venta extends DocumentoComercial{
     private Cliente dniruc;
     private Usuario idUsuario;
     //private String numDoc;
-    private LocalDateTime fechaGener;
+    private LocalDate fechaGener;
     //private String serie;
     //private String tipoDoc;
     private List<VentaDetalle> detalleVenta;
