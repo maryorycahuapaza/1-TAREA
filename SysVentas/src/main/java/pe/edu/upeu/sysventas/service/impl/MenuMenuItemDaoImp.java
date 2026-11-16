@@ -20,6 +20,8 @@ public class MenuMenuItemDaoImp implements IMenuMenuItemDao {
                 idioma.getProperty("menu.nombre.venta"), "Reg. Cliente", "Gestionar Cliente", "T"));
         lista.add(new MenuMenuItenTO("miventa", "/view/main_venta.fxml",
                 "Venta", "Reg. Venta", "Gestionar Ventas", "T"));
+        lista.add(new MenuMenuItenTO("mireporte", "/view/main_reporte.fxml",
+                "Reporte", "Reportes", "Gestionar Reportes", "T"));
 
         List<MenuMenuItenTO> accesoReal = new ArrayList<>();
         accesoReal.add(lista.get(0));
@@ -27,12 +29,14 @@ public class MenuMenuItemDaoImp implements IMenuMenuItemDao {
             case "Administrador":
                 accesoReal.add(lista.get(1)); // miproducto
                 accesoReal.add(lista.get(2)); // micliente
+                accesoReal.add(lista.get(4)); // mireporte
                 break;
             case "Root":
                 accesoReal = lista;
                 break;
             case "Reporte":
                 accesoReal.add(lista.get(2)); // micliente
+                accesoReal.add(lista.get(4)); // mireporte
                 break;
             default:
                 throw new AssertionError();
